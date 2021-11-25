@@ -51,10 +51,10 @@
 		<div class="col-lg-4">	<!-- 영역 크기 -->
 			<!-- 점보트론은 특정 컨텐츠, 정보를 두드러지게 하기 위한 큰 박스 -->
 			<div class="jumbotron" style="padding-top: 20px;">
-				<input type="button" value="일반회원가입"/>
-				<input type="button" value="업주회원가입 " onclick="location='join2.jsp'"/>
+				<input type="button" value="일반회원가입"onclick="location='join.jsp'"/>
+				<input type="button" value="업주회원가입"/>
 				<form method="post" action="joinAction.jsp">
-					<h3 style="text-align: center;">일반회원가입</h3>
+					<h3 style="text-align: center;">업주회원가입</h3>
 					<div class="form-group">
 						<input type="text" class="form-control" placeholder="아이디" name="userID" maxlength="20">
 					</div>
@@ -72,15 +72,8 @@
 						<span id="guide" class="form-control" style="display:none"></span>
 						<input type="text" class="form-control" id="sample4_detailAddress" placeholder="상세주소"  maxlength="20">
 					</div>
-					<div class="form-group" style="text-align: center;">
-						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-primary active">
-								<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
-							</label>
-							<label class="btn btn-primary active">
-								<input type="radio" name="userGender" autocomplete="off" value="여자" checked>여자
-							</label>
-						</div>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="사업장등록번호" name="registrationNumber" maxlength="20">
 					</div>
 					<div class="form-group">
 						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">
