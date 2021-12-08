@@ -190,7 +190,7 @@
 
 			script.println("<script>");
 
-			script.println("location.href = './index.jsp';");
+			script.println("location.href = 'exam.jsp';");
 
 			script.println("</script>");
 

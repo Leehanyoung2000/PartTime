@@ -4,6 +4,7 @@
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="bbs.Bbs" %>
 <%@ page import="java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,6 +70,7 @@
 	<!-- 게시판 메인 페이지 영역 시작 -->
 	<div class="container">
 		<div class="row">
+		
 			<table class="d-sm-table" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
@@ -116,8 +118,20 @@
 			
 			<!-- 글쓰기 버튼 생성 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
+			<form action="bbs.jsp" method="get" class="form-inline my-2 my-lg-0">
+
+         	 <input type="text" name="search" class="form-control mr-sm-2" placeholder="내용을 입력하세요.">
+			
+          	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+          	
+
+        </form>
+        
+        
 		</div>
+		
 	</div>
+	
 	<!-- 게시판 메인 페이지 영역 끝 -->
 	
 	<!-- Bootstrap core JS-->

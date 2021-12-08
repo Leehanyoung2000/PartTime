@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import evaluation.EvaluationDTO;
+
 public class BbsDAO {
 
 	private Connection conn;

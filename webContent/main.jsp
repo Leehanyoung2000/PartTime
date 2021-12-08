@@ -6,6 +6,8 @@
 %><%@ page import="java.io.PrintWriter" %>
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="bbs.Bbs" %>
+<%@ page import="evaluation.EvaluationDTO" %>
+<%@ page import="evaluation.EvaluationDAO" %>
 <%@ page import="java.util.ArrayList" %><!DOCTYPE html>
 <% 
 	int pageNumber = 1; //기본은 1 페이지를 할당
@@ -39,6 +41,7 @@
 			userID = (String)session.getAttribute("userID");
 		}
 	%>
+	
         <!-- Responsive navbar-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
@@ -108,29 +111,45 @@
 						</div>
                     </div>
                     <!-- Nested row for non-featured blog posts-->
+                    <%
+	ArrayList<EvaluationDTO> evaluationList = new ArrayList<EvaluationDTO>();
+	evaluationList = new EvaluationDAO().evaluationList(pageNumber);
+	if(evaluationList != null)
+	for(int i = 0; i < 1; i++) {
+		if(i == 5) break;
+		EvaluationDTO evaluation = evaluationList.get(i);
+%>
+
                     <div class="row">
-                        <div class="col-lg-6">
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                            <!-- Blog post-->
-                            <div class="card mb-4">
-                                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
-                                <div class="card-body">
-                                    <div class="small text-muted">January 1, 2021</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
-                                    <a class="btn btn-primary" href="#!">Read more →</a>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="card bg-light mt-3">
+        <div class="card-header bg-light">
+          <div class="row">
+            <div class="col-8 text-left"><%=evaluation.getLectureName()%>&nbsp;<small><%=evaluation.getProfessorName()%></small></div>
+            <div class="col-4 text-right">
+              종합 <span style="color: red;"><%=evaluation.getTotalScore()%></span>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">
+            <%=evaluation.getEvaluationTitle()%>&nbsp;<small>(<%=evaluation.getLectureYear()%>년 <%=evaluation.getSemesterDivide()%>)</small>
+          </h5>
+          <p class="card-text"><%=evaluation.getEvaluationContent()%></p>
+          <div class="row">
+            <div class="col-9 text-left">
+              만족도 <span style="color: red;"><%=evaluation.getCreditScore()%></span>
+              일의 강도 <span style="color: red;"><%=evaluation.getComfortableScore()%></span>
+              종류 <span style="color: red;"><%=evaluation.getLectureScore()%></span>
+              <span style="color: green;">(추천: <%=evaluation.getLikeCount()%>)</span>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+      <%
+						}
+					%>
+      
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
@@ -235,6 +254,7 @@
 					<%
 						}
 					%>
+					
 				</tbody>
 			</table>
                 </div>
