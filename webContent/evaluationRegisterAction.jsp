@@ -19,6 +19,8 @@
 		userID = (String) session.getAttribute("userID");
 
 	}
+	
+	
 
 	if(userID == null) {
 
@@ -50,7 +52,7 @@
 
 	String lectureDivide = null;
 
-	String evaluationTitle = null;
+	
 
 	String evaluationContent = null;
 
@@ -100,11 +102,7 @@
 
 	}
 
-	if(request.getParameter("evaluationTitle") != null) {
-
-		evaluationTitle = (String) request.getParameter("evaluationTitle");
-
-	}
+	
 
 	if(request.getParameter("evaluationContent") != null) {
 
@@ -138,11 +136,11 @@
 
 	if (lectureName == null || professorName == null || lectureYear == 0 || semesterDivide == null ||
 
-			lectureDivide == null || evaluationTitle == null || evaluationContent == null || totalScore == null ||
+			lectureDivide == null || evaluationContent == null || totalScore == null ||
 
 			creditScore == null || comfortableScore == null || lectureScore == null ||
 
-			evaluationTitle.equals("") || evaluationContent.equals("")) {
+			 evaluationContent.equals("")) {
 
 		PrintWriter script = response.getWriter();
 
@@ -164,7 +162,7 @@
 
 		int result = evaluationDAO.write(new EvaluationDTO(0, userID, lectureName, professorName, lectureYear,
 
-				semesterDivide, lectureDivide, evaluationTitle, evaluationContent,
+				semesterDivide, lectureDivide, evaluationContent,
 
 				totalScore, creditScore, comfortableScore, lectureScore, 0));
 

@@ -31,7 +31,7 @@ public class EvaluationDAO {
 	public int write(EvaluationDTO evaluationDTO) {
 		PreparedStatement pstmt = null;
 		try {
-			String SQL = "INSERT INTO EVALUATION VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0);";
+			String SQL = "INSERT INTO EVALUATION VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0);";
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, evaluationDTO.getUserID());
 			pstmt.setString(2, evaluationDTO.getLectureName());
@@ -39,12 +39,11 @@ public class EvaluationDAO {
 			pstmt.setInt(4, evaluationDTO.getLectureYear());
 			pstmt.setString(5, evaluationDTO.getSemesterDivide());
 			pstmt.setString(6, evaluationDTO.getLectureDivide());
-			pstmt.setString(7, evaluationDTO.getEvaluationTitle());
-			pstmt.setString(8, evaluationDTO.getEvaluationContent());
-			pstmt.setString(9, evaluationDTO.getTotalScore());
-			pstmt.setString(10, evaluationDTO.getCreditScore());
-			pstmt.setString(11, evaluationDTO.getComfortableScore());
-			pstmt.setString(12, evaluationDTO.getLectureScore());
+			pstmt.setString(7, evaluationDTO.getEvaluationContent());
+			pstmt.setString(8, evaluationDTO.getTotalScore());
+			pstmt.setString(9, evaluationDTO.getCreditScore());
+			pstmt.setString(10, evaluationDTO.getComfortableScore());
+			pstmt.setString(11, evaluationDTO.getLectureScore());
 			return pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -67,9 +66,9 @@ public class EvaluationDAO {
 		String SQL = "";
 		try {
 			if(searchType.equals("최신순")) {
-				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationTitle, evaluationContent) LIKE ? ORDER BY evaluationID DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
+				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationContent) LIKE ? ORDER BY evaluationID DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
 			} else if(searchType.equals("추천순")) {
-				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationTitle, evaluationContent) LIKE ? ORDER BY likeCount DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
+				SQL = "SELECT * FROM EVALUATION WHERE lectureDivide LIKE ? AND CONCAT(lectureName, professorName, evaluationContent) LIKE ? ORDER BY likeCount DESC LIMIT " + pageNumber * 5 + ", " + pageNumber * 5 + 6;
 			}
 			pstmt = conn.prepareStatement(SQL);
 			pstmt.setString(1, "%" + lectureDivide + "%");
@@ -90,8 +89,7 @@ public class EvaluationDAO {
 					rs.getString(10),
 					rs.getString(11),
 					rs.getString(12),
-					rs.getString(13),
-					rs.getInt(14)
+					rs.getInt(13)
 				);
 				evaluationList.add(evaluation);
 			}
@@ -108,7 +106,8 @@ public class EvaluationDAO {
 		}
 		return evaluationList;
 	}
-	public ArrayList<EvaluationDTO> evaluationList(int pageNumber){
+	
+	public ArrayList<EvaluationDTO> evaluationList(){
 		String sql = "SELECT * from evaluation where likeCount";
 		ArrayList<EvaluationDTO> evaluationlist = new ArrayList<EvaluationDTO>();
 		try {
@@ -129,8 +128,7 @@ public class EvaluationDAO {
 						rs.getString(10),
 						rs.getString(11),
 						rs.getString(12),
-						rs.getString(13),
-						rs.getInt(14)
+						rs.getInt(13)
 					);
 					evaluationlist.add(evaluation);
 			}
@@ -273,6 +271,4 @@ public class EvaluationDAO {
 
 
 }
-
-
 

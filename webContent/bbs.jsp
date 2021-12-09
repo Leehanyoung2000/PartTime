@@ -37,7 +37,7 @@
 	%>
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="#!">알바선배</a>
+                <a class="navbar-brand" href="main.jsp">알바선배</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <%
@@ -45,7 +45,7 @@
 					if(userID == null){
 				%>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="main.jsp">홈</a></li>
                         <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
                         <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
@@ -55,7 +55,7 @@
 					}else{
 				%>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" href="main.jsp">홈</a></li>
                         <li class="nav-item"><a class="nav-link" href="logoutAction.jsp">로그아웃</a></li>
                         <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
                     </ul>
@@ -70,8 +70,11 @@
 	<!-- 게시판 메인 페이지 영역 시작 -->
 	<div class="container">
 		<div class="row">
-		
-			<table class="d-sm-table" style="text-align: center; border: 1px solid #dddddd">
+			<form action="bbs.jsp" method="get" class="form-inline my-2 my-lg-0">
+	         	<input type="text" name="search" class="form-control-sm" placeholder="내용을 입력하세요.">
+	          	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+        	</form>
+			<table class="table" style="text-align: center; border: 1px solid #dddddd">
 				<thead>
 					<tr>
 						<th style="background-color: #eeeeee; text-align: center;">번호</th>
@@ -118,14 +121,6 @@
 			
 			<!-- 글쓰기 버튼 생성 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-			<form action="bbs.jsp" method="get" class="form-inline my-2 my-lg-0">
-
-         	 <input type="text" name="search" class="form-control mr-sm-2" placeholder="내용을 입력하세요.">
-			
-          	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
-          	
-
-        </form>
         
         
 		</div>

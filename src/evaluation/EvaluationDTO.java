@@ -18,7 +18,6 @@ public class EvaluationDTO {
 
 	String lectureDivide;
 
-	String evaluationTitle;
 
 	String evaluationContent;
 
@@ -118,17 +117,7 @@ public class EvaluationDTO {
 
 	}
 
-	public String getEvaluationTitle() {
-
-		return evaluationTitle;
-
-	}
-
-	public void setEvaluationTitle(String evaluationTitle) {
-
-		this.evaluationTitle = evaluationTitle;
-
-	}
+	
 
 	public String getEvaluationContent() {
 
@@ -206,7 +195,7 @@ public class EvaluationDTO {
 
 	public EvaluationDTO(int evaluationID, String userID, String lectureName, String professorName, int lectureYear,
 
-			String semesterDivide, String lectureDivide, String evaluationTitle, String evaluationContent,
+			String semesterDivide, String lectureDivide,  String evaluationContent,
 
 			String totalScore, String creditScore, String comfortableScore, String lectureScore, int likeCount) {
 
@@ -226,8 +215,6 @@ public class EvaluationDTO {
 
 		this.lectureDivide = lectureDivide;
 
-		this.evaluationTitle = evaluationTitle;
-
 		this.evaluationContent = evaluationContent;
 
 		this.totalScore = totalScore;
@@ -246,6 +233,5 @@ public class EvaluationDTO {
 	
 
 }
-
 
 

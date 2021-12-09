@@ -100,7 +100,7 @@
                 </div>
             </div>
         </nav>
-         <div class="container">
+    <div class="container">
       <form method="get" action="exam.jsp" class="form-inline mt-3">
         <select name="lectureDivide" class="form-control mx-1 mt-2">
           <option value="전체">전체</option>
@@ -136,7 +136,7 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">
-            <small>(<%=evaluation.getLectureYear()%>년 <%=evaluation.getSemesterDivide()%>)</small>
+            <%=evaluation.getEvaluationTitle()%>&nbsp;<small>(<%=evaluation.getLectureYear()%>년 <%=evaluation.getSemesterDivide()%>)</small>
           </h5>
           <p class="card-text"><%=evaluation.getEvaluationContent()%></p>
           <div class="row">
@@ -237,7 +237,10 @@
                   </select>
                 </div>
               </div>
-              
+              <div class="form-group">
+                <label>제목</label>
+                <input type="text" name="evaluationTitle" class="form-control" maxlength="20">
+              </div>
               <div class="form-group">
                 <label>내용</label>
                 <textarea type="text" name="evaluationContent" class="form-control" maxlength="2048" style="height: 180px;"></textarea>
@@ -321,7 +324,6 @@
         </div>
       </div>
     </div>
-   
     <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
       Copyright ⓒ 2018 알바선배 All Rights Reserved.
     </footer>
