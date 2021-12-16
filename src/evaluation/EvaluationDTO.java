@@ -18,7 +18,6 @@ public class EvaluationDTO {
 
 	String lectureDivide;
 
-
 	String evaluationContent;
 
 	String totalScore;

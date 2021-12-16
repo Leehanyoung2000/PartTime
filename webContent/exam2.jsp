@@ -1,22 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ page import="java.io.PrintWriter"%>
-
 <%@ page import="user.UserDAO"%>
-
 <%@ page import="evaluation.EvaluationDAO"%>
-
 <%@ page import="evaluation.EvaluationDTO"%>
-
 <%@ page import="java.util.ArrayList"%>
-
 <%@ page import="java.net.URLEncoder"%>
-
 <!doctype html>
-
 <html>
-  <head>
-    <title>대타 추천 게시판</title>
+<head>
+    <title>알바 평가 게시판</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap core JS-->
@@ -33,8 +25,8 @@
     <script src="./js/popper.min.js"></script>
     <!-- 부트스트랩 자바스크립트 추가하기 -->
     <script src="./js/bootstrap.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String lectureDivide = "전체";
@@ -135,9 +127,9 @@
           </div>
         </div>
         <div class="card-body">
-          <h5 class="card-title">
-            <%=evaluation.getEvaluationTitle()%>&nbsp;<small>(<%=evaluation.getLectureYear()%>년 <%=evaluation.getSemesterDivide()%>)</small>
-          </h5>
+         <%--  <h5 class="card-title">
+             <%=evaluation.getEvaluationTitle()%>&nbsp;<small>(<%=evaluation.getLectureYear()%>년 <%=evaluation.getSemesterDivide()%>)</small>
+       </h5> --%>
           <p class="card-text"><%=evaluation.getEvaluationContent()%></p>
           <div class="row">
             <div class="col-9 text-left">
@@ -324,8 +316,8 @@
         </div>
       </div>
     </div>
-    <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-      Copyright ⓒ 2018 알바선배 All Rights Reserved.
+    <footer class="py-5 bg-dark">
+    	<div class="container"><p class="m-0 text-center text-white">Copyright ⓒ 2021 알바선배 All Rights Reserved.</p></div>
     </footer>
     
   </body>

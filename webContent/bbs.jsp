@@ -4,22 +4,29 @@
 <%@ page import="bbs.BbsDAO" %>
 <%@ page import="bbs.Bbs" %>
 <%@ page import="java.util.ArrayList" %>
-
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<!-- 화면 최적화 -->
-<meta name="viewport" content="width-device-width", initial-scale="1">
-<!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
-<link href="css/styles.css" rel="stylesheet" />
-<title>알바선배</title>
-<style type="text/css">
-	a, a:hover{
-		color: #000000;
-		text-decoration: none;
-	}
-</style>
+	<meta charset="UTF-8">
+	<!-- 화면 최적화 -->
+	<meta name="viewport" content="width-device-width", initial-scale="1">
+	<!-- 루트 폴더에 부트스트랩을 참조하는 링크 -->
+	<link href="css/styles.css" rel="stylesheet" />
+	<title>알바선배 게시판</title>
+	<!-- Bootstrap core JS-->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- Core theme JS-->
+	<script defer src="./js/scripts.js"></script>
+	<!-- Favicon-->
+	<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+	<!-- Core theme CSS (includes Bootstrap)-->
+	<link href="css/styles.css" rel="stylesheet" />
+	<style type="text/css">
+		a, a:hover{
+			color: #000000;
+			text-decoration: none;
+		}
+	</style>
 </head>
 <body>
 	<%
@@ -65,8 +72,6 @@
                 </div>
             </div>
       </nav>
-	<!-- 네비게이션 영역 끝 -->
-	
 	<!-- 게시판 메인 페이지 영역 시작 -->
 	<div class="container">
 		<div class="row">
@@ -121,17 +126,7 @@
 			
 			<!-- 글쓰기 버튼 생성 -->
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-        
-        
 		</div>
-		
 	</div>
-	
-	<!-- 게시판 메인 페이지 영역 끝 -->
-	
-	<!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
 </body>
 </html>

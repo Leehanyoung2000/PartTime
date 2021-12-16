@@ -1,22 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
 <%@ page import="java.io.PrintWriter"%>
-
 <%@ page import="user.UserDAO"%>
-
 <%@ page import="evaluation.EvaluationDAO"%>
-
 <%@ page import="evaluation.EvaluationDTO"%>
-
 <%@ page import="java.util.ArrayList"%>
-
 <%@ page import="java.net.URLEncoder"%>
-
 <!doctype html>
-
 <html>
-  <head>
-    <title>대타 추천 게시판</title>
+<head>
+	<title>대타 평가 게시판</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Bootstrap core JS-->
@@ -33,8 +25,8 @@
     <script src="./js/popper.min.js"></script>
     <!-- 부트스트랩 자바스크립트 추가하기 -->
     <script src="./js/bootstrap.min.js"></script>
-  </head>
-  <body>
+ </head>
+ <body>
 <%
 	request.setCharacterEncoding("UTF-8");
 	String lectureDivide = "전체";
@@ -70,36 +62,37 @@
 		script.close();	
 	}
 %>	
+	<!-- Responsive navbar-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" href="main.jsp">알바선배</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <%
+    	<div class="container">
+    		<a class="navbar-brand" href="main.jsp">알바선배</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	            <%
 					// 로그인 하지 않았을 때 보여지는 화면
 					if(userID == null){
 				%>
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">홈</a></li>
-                        <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
-                        <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
-                    </ul>
-                <%
+	            	<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+	                	<li class="nav-item"><a class="nav-link" href="main.jsp">홈</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="login.jsp">로그인</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="join.jsp">회원가입</a></li>
+	                    <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
+	                </ul>
+	            <%
 					// 로그인이 되어 있는 상태에서 보여주는 화면
 					}else{
 				%>
 					<ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="main.jsp">홈</a></li>
-                        <li class="nav-item"><a class="nav-link" href="logoutAction.jsp">로그아웃</a></li>
-                        <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
-                    </ul>
+	                	<li class="nav-item"><a class="nav-link active" aria-current="page" href="#">홈</a></li>
+	                    <li class="nav-item"><a class="nav-link" href="logoutAction.jsp">로그아웃</a></li>
+	                    <!--<li class="nav-item"><a class="nav-link" href="#">마이페이지</a></li>-->
+	                </ul>
 				<%
 					}
 				%>
-                </div>
             </div>
-        </nav>
+		</div>
+	</nav>
          <div class="container">
       <form method="get" action="exam.jsp" class="form-inline mt-3">
         <select name="lectureDivide" class="form-control mx-1 mt-2">
@@ -321,10 +314,9 @@
         </div>
       </div>
     </div>
-   
-    <footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFFF;">
-      Copyright ⓒ 2018 알바선배 All Rights Reserved.
-    </footer>
+   <footer class="py-5 bg-dark">
+   		<div class="container"><p class="m-0 text-center text-white">Copyright ⓒ 2021 알바선배 All Rights Reserved.</p></div>
+   </footer>
     
   </body>
 </html>
